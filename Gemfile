@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-gem 'qiita'
 gem 'rails', '3.2.8'
 gem 'thin'
 
 gem 'haml-rails'
 gem 'jquery-rails'
+
+gem 'qiita'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
