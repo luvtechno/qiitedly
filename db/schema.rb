@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013040510) do
+ActiveRecord::Schema.define(:version => 20121013042210) do
 
   create_table "taggings", :force => true do |t|
     t.integer  "user_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20121013040510) do
     t.integer  "followers",         :default => 0
     t.integer  "following_users",   :default => 0
     t.integer  "items",             :default => 0
+    t.datetime "fetched_at"
   end
 
   add_index "users", ["name"], :name => "index_users_on_name"
