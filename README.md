@@ -1,4 +1,6 @@
 ![](https://raw.github.com/luvtechno/qiitedly/master/app/assets/images/qiitedly.png)
 
 
-[Qiita](http://qiita.com) + [Wantedly](https://www.wantedly.com)
+[Qiitedly](https://qiitedly.herokuapp.com) = [Qiita](http://qiita.com) + [Wantedly](https://www.wantedly.com)
+
+https://qiitedly.herokuapp.com
