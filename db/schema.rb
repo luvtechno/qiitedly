@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013033317) do
+ActiveRecord::Schema.define(:version => 20121013040510) do
 
   create_table "taggings", :force => true do |t|
     t.integer  "user_id"
@@ -29,9 +29,22 @@ ActiveRecord::Schema.define(:version => 20121013033317) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.string   "url_name"
+    t.string   "profile_image_url"
+    t.string   "url"
+    t.string   "description"
+    t.string   "website_url"
+    t.string   "organization"
+    t.string   "location"
+    t.string   "facebook"
+    t.string   "linkedin"
+    t.string   "twitter"
+    t.integer  "followers",         :default => 0
+    t.integer  "following_users",   :default => 0
+    t.integer  "items",             :default => 0
   end
 
   add_index "users", ["name"], :name => "index_users_on_name"
