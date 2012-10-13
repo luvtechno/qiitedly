@@ -23,8 +23,8 @@
     </div>
     <div class="tags">
       タグ
-      <% Tag.all.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag.url_name) if tag.search_results.exists? %>
+      <% Tag.includes(:search_results).all.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.url_name) if tag.search_results.to_a.present? %>
       <% end %>
     </div>
     <div class="footer">
