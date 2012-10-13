@@ -6,9 +6,6 @@ gem 'rails', '3.2.8'
 gem 'thin'
 
 gem 'haml-rails'
-gem 'rails-backbone'
-gem 'simple_form'
-
 
 group :assets do
   gem 'jquery-rails'
