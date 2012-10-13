@@ -10,17 +10,21 @@ class Tag < ActiveRecord::Base
   def fetch_search_results
     gcs = GoogleCustomSearch.new
     response = gcs.request(name)
-    response.items.each do |item|
-      search_result = search_results.build
-      search_result.title = item.title
-      search_result.html_title = item.htmlTitle
-      search_result.link = item.link
-      search_result.display_link = item.displayLink
-      search_result.snippet = item.snippet
-      search_result.html_snippet = item.htmlSnippet
-      search_result.cse_thumbnail = item.pagemap.metatags.first["og:image"]
-      search_result.save!
+    items = response.items
+    if items
+      items.each do |item|
+        search_result = search_results.build
+        search_result.title = item.title
+        search_result.html_title = item.htmlTitle
+        search_result.link = item.link
+        search_result.display_link = item.displayLink
+        search_result.snippet = item.snippet
+        search_result.html_snippet = item.htmlSnippet
+        search_result.cse_thumbnail = item.pagemap.metatags.first["og:image"]
+        search_result.save!
+      end
     end
+    items
   end
 end
 
