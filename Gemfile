@@ -7,6 +7,8 @@ gem 'thin'
 gem 'haml-rails'
 gem 'rails-backbone'
 gem 'simple_form'
+gem 'google_custom_search'
+
 
 group :assets do
   gem 'jquery-rails'
