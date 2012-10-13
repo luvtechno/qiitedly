@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013042210) do
+ActiveRecord::Schema.define(:version => 20121013060742) do
+
+  create_table "search_results", :force => true do |t|
+    t.integer  "tag_id"
+    t.string   "title"
+    t.string   "html_title"
+    t.string   "link"
+    t.string   "display_link"
+    t.text     "snippet"
+    t.text     "html_snippet"
+    t.string   "cse_thumbnail"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "user_id"
