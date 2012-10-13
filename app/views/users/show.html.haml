@@ -1,7 +1,13 @@
 
+%h1
+  = link_to "#{@user.name || @user.url_name}", @user.url
+  さんにおすすめのウォンテッド求人・会社
 
-= @user.url_name
-= @user.name
+=# @user.tags.map { |tag| link_to tag.name, tag.url }.join(' / ').html_safe
 
-
-= link_to 'Back', users_path
+- @user.search_results.each do |search_result|
+  %div
+    %h2
+      = link_to search_result.html_title.html_safe, search_result.link
+    %div
+      = (search_result.html_snippet.try(:html_safe) || search_result.snippet)

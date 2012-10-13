@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :search_results, through: :tags
 
   attr_accessible :url_name
 
@@ -34,7 +35,14 @@ class User < ActiveRecord::Base
     !!fetched_at
   end
 
+  def url
+    "http://qiita.com/users/#{url_name}"
+  end
+
   def self.find_by_name_or_id(arg)
     User.find_by_url_name(arg) || User.find(arg)
   end
+
+  # def search_results
+  # end
 end
