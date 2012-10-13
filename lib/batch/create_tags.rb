@@ -1,4 +1,4 @@
-Qiita.tags.each do |raw_tag|
+Qiita.tags(per_page: 100).each do |raw_tag|
   tag = Tag.where(name: raw_tag.name).first_or_initialize
   tag.url_name = raw_tag.url_name
   tag.icon_url = raw_tag.icon_url
