@@ -61,4 +61,8 @@ class User < ActiveRecord::Base
     results = SearchResult.all.sample(4) if results.empty?
     results.sort { |a, b| a.url <=> b.url }.uniq { |result| result.url }.shuffle
   end
+
+  def image_url
+    profile_image_url || ApplicationController.helpers.asset_path('c_icon.png')
+  end
 end

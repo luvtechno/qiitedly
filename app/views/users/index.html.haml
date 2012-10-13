@@ -1,5 +1,8 @@
 = render 'form'
 
 - @users.each do |user|
-  %div
-    = link_to user.url_name, user_path(user.url_name)
+  .cf
+    %div{ style: 'float: left; margin-right: 20px;' }
+      = image_tag user.image_url, width: "50"
+    %div{ style: 'float: left;' }
+      = link_to user.url_name, user_path(user.url_name)
