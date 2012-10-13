@@ -24,6 +24,9 @@ class Tag < ActiveRecord::Base
         search_result.save!
       end
     end
+    search_results.each do |search_result|
+      search_result.destroy if search_result.updated_at < 1.week.ago
+    end
     items
   end
 end
