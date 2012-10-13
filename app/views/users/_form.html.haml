@@ -2,7 +2,8 @@
 /   = f.input :url_name, as: :string
 /   = f.submit
 
-= form_for @user do |f|
-  Qiitaユーザ名:
-  = f.text_field :url_name
-  = f.submit
+%div{ style: "margin-bottom: 20px; font-size: large;" }
+  = form_for @user do |f|
+    Qiitaユーザ名:
+    = f.text_field :url_name
+    = f.submit '毎日楽しくプログラミングしたい'
