@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     self.fetched_at = Time.now
     save!
 
-    new_tags = []
+    new_tags = [ Tag.find_by_url_name('Qiita') ]
 
     # raw_items = Qiita.user_items url_name
     # logger.info raw_items
