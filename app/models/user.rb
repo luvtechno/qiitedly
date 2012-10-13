@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_many :tags, through: :taggings
   has_many :search_results, through: :tags
 
-  validates :url_name, uniqueness: true
+  validates :url_name, uniqueness: true, presence: true, length: { maximum: 255 }
+
 
   attr_accessible :url_name
 
