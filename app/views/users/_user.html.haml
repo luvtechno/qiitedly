@@ -4,7 +4,7 @@
 
 =# user.tags.map { |tag| link_to tag.name, tag.url }.join(' / ').html_safe
 
-- user.search_results.each do |search_result|
+- user.search_results_filtered.each do |search_result|
   %div.cf{ style: "margin-bottom: 50px;" }
     %div{ style: "float: left; width: 250px; margin-right: 50px" }
       = image_tag search_result.cse_thumbnail, width: "250"

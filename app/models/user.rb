@@ -56,6 +56,7 @@ class User < ActiveRecord::Base
     User.find_by_url_name(arg) || User.find(arg)
   end
 
-  # def search_results
-  # end
+  def search_results_filtered
+    search_results.reject { |result| result.link.include?('.html') }
+  end
 end
