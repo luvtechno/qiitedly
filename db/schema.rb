@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013023056) do
+ActiveRecord::Schema.define(:version => 20121013032959) do
+
+  create_table "tags", :force => true do |t|
+    t.string  "name",                          :null => false
+    t.string  "url_name",                      :null => false
+    t.string  "icon_url",                      :null => false
+    t.integer "item_count",     :default => 0
+    t.integer "follower_count", :default => 0
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name",       :null => false
