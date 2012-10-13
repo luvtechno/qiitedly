@@ -21,6 +21,12 @@
     <div>
       <%= yield %>
     </div>
+    <div class="tags">
+      タグ
+      <% Tag.all.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.url_name) if tag.search_results.exists? %>
+      <% end %>
+    </div>
     <div class="footer">
       Powered by <%= link_to 'Qiita', 'http://qiita.com' %> &amp; <%= link_to 'Wantedly', 'https://www.wantedly.com' %>
       |
