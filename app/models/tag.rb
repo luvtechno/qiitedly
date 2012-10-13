@@ -1,7 +1,7 @@
 class Tag < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
   has_many :users, through: :taggings
-  has_many :search_results
+  has_many :search_results, dependent: :destroy
 
   def url
     "http://qiita.com/tags/#{url_name}"
