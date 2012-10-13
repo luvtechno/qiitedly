@@ -18,7 +18,7 @@ class Tag < ActiveRecord::Base
       search_result.display_link = item.displayLink
       search_result.snippet = item.snippet
       search_result.html_snippet = item.htmlSnippet
-      search_result.cse_thumbnail = item.pagemap.cse_thumbnail.first.src
+      search_result.cse_thumbnail = item.pagemap.metatags.first["og:image"]
       search_result.save!
     end
   end

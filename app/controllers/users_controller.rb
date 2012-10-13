@@ -19,7 +19,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
-      format.js
+      format.js do
+        @user.fetch_qiita_data unless @user.fetched?
+      end
     end
   end
 

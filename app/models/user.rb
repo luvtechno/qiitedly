@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
     self.tags = new_tags
   end
 
+  def fetched?
+    !!fetched_at
+  end
+
   def valid_qiita_user?
     !!fetched_at
   end
