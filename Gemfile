@@ -15,8 +15,9 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
-  gem 'haml-rails'
 end
+gem 'haml-rails'
+
 
 gem 'thin'
 
