@@ -18,13 +18,20 @@ class User < ActiveRecord::Base
 
     new_tags = []
 
-    raw_items = Qiita.user_items url_name
-    logger.info raw_items
-    raw_items.each do |raw_item|
-      raw_item.tags.each do |raw_tag|
-        new_tags << Tag.find_by_url_name(raw_tag.url_name)
-      end
+    # raw_items = Qiita.user_items url_name
+    # logger.info raw_items
+    # raw_items.each do |raw_item|
+    #   raw_item.tags.each do |raw_tag|
+    #     new_tags << Tag.find_by_url_name(raw_tag.url_name)
+    #   end
+    # end
+
+    raw_tags = Qiita.user_following_tags url_name
+    logger.info raw_tags
+    raw_tags.each do |raw_tag|
+      new_tags << Tag.find_by_url_name(raw_tag.url_name)
     end
+
     new_tags.compact!
     new_tags.uniq!
 
