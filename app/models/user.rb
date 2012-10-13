@@ -61,7 +61,6 @@ class User < ActiveRecord::Base
       result.link.include?('.html') || result.link.include?('.xml')
     end
     results = SearchResult.all.sample(4) if results.empty?
-    results.uniq! { |result| result.url }
-    results
+    results.sort { |a, b| a.url <=> b.url }.uniq { |result| result.url }.shuffle
   end
 end
