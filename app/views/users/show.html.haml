@@ -1,2 +1,4 @@
-#user{ data: { id: @user.id, reload: (!@user.valid_qiita_user?).to_s } }
-  / = render @user
+/ #user{ data: { id: @user.id, reload: (!@user.valid_qiita_user?).to_s } }
+/ #user{ data: { id: @user.id, reload: (!@user.search_results.present?).to_s } }
+#user{ data: { id: @user.id, reload: 'true' } }
+  = render @user

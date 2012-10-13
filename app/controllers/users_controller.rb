@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @user }
       format.js do
-        @user.fetch_qiita_data unless @user.fetched?
+        @user.fetch_qiita_data unless @user.search_results.present? # @user.fetched?
       end
     end
   end

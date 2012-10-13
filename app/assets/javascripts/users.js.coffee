@@ -6,8 +6,11 @@
 $ ->
   $('#user').each ->
     userId = $(this).data('id')
+    reload = $(this).data('reload')
     console.log userId
-    $.ajax
-      url: "/users/#{userId}"
-      type: 'get'
-      dataType: 'script'
+    console.log reload
+    if reload
+      $.ajax
+        url: "/users/#{userId}"
+        type: 'get'
+        dataType: 'script'
