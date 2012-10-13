@@ -1,13 +1,16 @@
+#user{ data: { id: @user.id, reload: (!@user.valid_qiita_user?).to_s } }
+  %h1
+    = link_to "#{@user.name || @user.url_name}", @user.url
+    さんにおすすめのウォンテッド求人・会社
 
-%h1
-  = link_to "#{@user.name || @user.url_name}", @user.url
-  さんにおすすめのウォンテッド求人・会社
+  =# @user.tags.map { |tag| link_to tag.name, tag.url }.join(' / ').html_safe
 
-=# @user.tags.map { |tag| link_to tag.name, tag.url }.join(' / ').html_safe
-
-- @user.search_results.each do |search_result|
-  %div
-    %h2
-      = link_to search_result.html_title.html_safe, search_result.link
-    %div
-      = (search_result.html_snippet.try(:html_safe) || search_result.snippet)
+  - @user.search_results.each do |search_result|
+    %div.cf{ style: "margin-bottom: 50px;" }
+      %div{ style: "float: left; width: 250px; margin-right: 50px" }
+        = image_tag search_result.cse_thumbnail, width: "250"
+      %div{ style: "float: left; width: 680px;" }
+        %h2
+          = link_to search_result.html_title.html_safe, search_result.link
+        %div
+          = (search_result.html_snippet.try(:html_safe) || search_result.snippet)

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :tags, through: :taggings
   has_many :search_results, through: :tags
 
+  validates :url_name, uniqueness: true
+
   attr_accessible :url_name
 
   # after_save :fetch_qiita_data

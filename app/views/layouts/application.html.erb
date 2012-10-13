@@ -7,13 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= link_to image_tag(asset_path('qiitedly.png')), root_path %>
-<div>
-  <%= yield %>
-</div>
-<div>
-  Powered by <%= link_to 'Qiita', 'http://qiita.com' %> &amp; <%= link_to 'Wantedly', 'https://www.wantedly.com' %>
-</div>
+  <div class="main">
+    <%= link_to image_tag(asset_path('qiitedly.png')), root_path %>
+    <div>
+      <%= yield %>
+    </div>
+    <div>
+      Powered by <%= link_to 'Qiita', 'http://qiita.com' %> &amp; <%= link_to 'Wantedly', 'https://www.wantedly.com' %>
+      |
+      We &lt;3 code!
+    </div>
+  </div>
 </body>
 </html>
