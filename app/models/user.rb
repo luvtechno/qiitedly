@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :url_name
 
-  after_save :fetch_qiita_data
+  # after_save :fetch_qiita_data
 
   def fetch_qiita_data
     raw_user = Qiita.user url_name
@@ -14,9 +14,27 @@ class User < ActiveRecord::Base
     end
     self.fetched_at = Time.now
     save!
+
+    new_tags = []
+
+    raw_items = Qiita.user_items url_name
+    logger.info raw_items
+    raw_items.each do |raw_item|
+      raw_item.tags.each do |raw_tag|
+        new_tags << Tag.find_by_url_name(raw_tag.url_name)
+      end
+    end
+    new_tags.compact!
+    new_tags.uniq!
+
+    self.tags = new_tags
   end
 
   def valid_qiita_user?
     !!fetched_at
+  end
+
+  def self.find_by_name_or_id(arg)
+    User.find_by_url_name(arg) || User.find(arg)
   end
 end
