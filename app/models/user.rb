@@ -57,8 +57,10 @@ class User < ActiveRecord::Base
   end
 
   def search_results_filtered
-    search_results.order("RANDOM()").reject do |result|
+    results = search_results.order("RANDOM()").reject do |result|
       result.link.include?('.html') || result.link.include?('.xml')
     end
+    results = SearchResult.all.sample(4) if results.empty?
+    results
   end
 end
