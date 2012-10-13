@@ -1,0 +1,6 @@
+%h1
+  = link_to "#{@tag.name}", @tag.url
+  好きプログラマにオススメのウォンテッド求人・会社
+
+- @tag.search_results_filtered.each do |search_result|
+  = render search_result

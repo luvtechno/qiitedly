@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
-  def index
-    @user = User.find_by_name_or_id(params[:user_id])
+  def show
+    @tag = Tag.find_by_name_or_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

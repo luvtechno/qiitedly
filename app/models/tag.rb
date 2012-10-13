@@ -29,14 +29,16 @@ class Tag < ActiveRecord::Base
     end
     items
   end
+
+  def self.find_by_name_or_id(arg)
+    Tag.find_by_url_name(arg) || Tag.find(arg)
+  end
+
+  def search_results_filtered
+    results = search_results.order("RANDOM()").reject do |result|
+      result.link.include?('.html') || result.link.include?('.xml')
+    end
+    results = SearchResult.all.sample(4) if results.empty?
+    results.sort { |a, b| a.url <=> b.url }.uniq { |result| result.url }.shuffle
+  end
 end
-
-
-      # t.references :tag
-      # t.string :title
-      # t.string :html_title
-      # t.string :link
-      # t.string :display_link
-      # t.text :snippet
-      # t.text :html_snippet
-      # t.string :cse_thumbnail

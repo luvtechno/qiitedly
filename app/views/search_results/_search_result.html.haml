@@ -1,0 +1,8 @@
+%div.cf{ style: "margin-bottom: 50px;" }
+  %div{ style: "float: left; width: 250px; margin-right: 50px" }
+    = image_tag search_result.cse_thumbnail, width: "250"
+  %div{ style: "float: left; width: 680px;" }
+    %h2
+      = link_to search_result.html_title.html_safe, search_result.url
+    %div
+      = (search_result.html_snippet.try(:html_safe) || search_result.snippet)
