@@ -18,10 +18,14 @@ group :assets do
   gem 'haml-rails'
 end
 
-
 group :development do
   gem 'sqlite3'
   gem 'thin'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'rspec-rails'
 end
 
 group :production do
