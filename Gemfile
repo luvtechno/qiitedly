@@ -18,9 +18,10 @@ group :assets do
   gem 'haml-rails'
 end
 
+gem 'thin'
+
 group :development do
   gem 'sqlite3'
-  gem 'thin'
   gem 'pry-rails'
 end
 
@@ -29,7 +30,6 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
   gem 'foreman'
   gem 'execjs'
   gem 'pg'
