@@ -13,7 +13,7 @@ class Tag < ActiveRecord::Base
     items = response.items
     if items
       items.each do |item|
-        search_result = search_results.build
+        search_result = search_results.where(link: item.link).first_or_initialize
         search_result.title = item.title
         search_result.html_title = item.htmlTitle
         search_result.link = item.link
