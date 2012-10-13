@@ -12,10 +12,49 @@
  *= require_tree .
  */
 
+@import "compass";
+
+
+// wantedly color palette
+
+$gray1: #9DA0A4;
+$gray2: #6A6E71;
+$gray3: #45494B;
+$gray4: #24282A;
+$lightgray1: #EBEDEF;
+$lightgray2: #D7DBDF;
+$blue1: #00A4BB;
+$blue2: #003C69;
+$red1: #FF3333;
+$red2: #F55B3E;
+$green1: #6CC644;
+$yellow1: #FED100;
+
+html {
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: $gray4;
+}
+
+a {
+  @include link-colors($blue2);
+}
 
 .main {
   width: 980px;
   margin: 0 auto;
+}
+
+.header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+  border-top: solid 1px $lightgray2;
+  color: $gray1;
 }
 
 /*------------------------------------*\
