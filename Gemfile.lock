@@ -141,6 +141,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_form (2.0.4)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     slop (3.3.3)
     sprockets (2.1.3)
       hike (~> 1.2)
@@ -178,6 +181,7 @@ DEPENDENCIES
   rails-backbone
   rspec-rails
   sass-rails (~> 3.2.3)
+  simple_form
   sqlite3
   thin
   uglifier (>= 1.0.3)

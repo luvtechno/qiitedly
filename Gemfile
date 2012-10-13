@@ -6,7 +6,7 @@ gem 'thin'
 
 gem 'haml-rails'
 gem 'rails-backbone'
-
+gem 'simple_form'
 
 group :assets do
   gem 'jquery-rails'
