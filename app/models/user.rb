@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
 
   attr_accessible :url_name
 
-  # after_save :fetch_qiita_data
-
   def fetch_qiita_data
     raw_user = Qiita.user url_name
     logger.info raw_user
