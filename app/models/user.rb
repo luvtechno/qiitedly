@@ -37,6 +37,8 @@ class User < ActiveRecord::Base
     new_tags.uniq!
 
     self.tags = new_tags
+  rescue Qiita::NotFound => e
+    logger.error e
   end
 
   def fetched?
