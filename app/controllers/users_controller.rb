@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_filter :find_user, only: [:show]
-  before_filter :meta_data, only: [:show]
+  before_filter :meta_data
 
   # GET /users
   # GET /users.json
@@ -49,6 +49,10 @@ class UsersController < ApplicationController
   end
 
   def meta_data
-    @meta_description = "#{@user.name_displayed}さんにおすすめのウォンテッド求人・会社"
+    if @user
+      @meta_description = "#{@user.name_displayed}さんにおすすめのウォンテッド求人・会社"
+    else
+      @meta_description = '毎日楽しくプログラミングをしよう！ あなたのQiitaデータから会社をオススメします'
+    end
   end
 end
