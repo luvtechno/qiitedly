@@ -64,6 +64,7 @@ class User < ActiveRecord::Base
   end
 
   def image_url
-    profile_image_url || ApplicationController.helpers.asset_path('c_icon.png')
+    url = profile_image_url || ApplicationController.helpers.asset_path('c_icon.png')
+    url.sub('http://', 'https://')
   end
 end
