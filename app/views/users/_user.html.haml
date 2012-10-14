@@ -1,5 +1,5 @@
 %h1
-  = link_to "#{user.name || user.url_name}", user.url
+  = link_to "#{user.name_displayed}", user.url
   さんにおすすめのウォンテッド求人・会社
 
 =# user.tags.map { |tag| link_to tag.name, tag.url }.join(' / ').html_safe

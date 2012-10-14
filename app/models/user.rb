@@ -69,4 +69,8 @@ class User < ActiveRecord::Base
     url = profile_image_url || ApplicationController.helpers.asset_path('c_icon.png')
     url.sub('http://', 'https://')
   end
+
+  def name_displayed
+    name || url_name
+  end
 end

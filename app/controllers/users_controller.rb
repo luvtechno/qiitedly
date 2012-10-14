@@ -1,4 +1,9 @@
+# coding: utf-8
+
 class UsersController < ApplicationController
+  before_filter :find_user, only: [:show]
+  before_filter :meta_data, only: [:show]
+
   # GET /users
   # GET /users.json
   def index
@@ -13,8 +18,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find_by_name_or_id(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.js do
@@ -38,5 +41,14 @@ class UsersController < ApplicationController
         format.html { redirect_to root_path }
       end
     end
+  end
+
+  private
+  def find_user
+    @user = User.find_by_name_or_id(params[:id])
+  end
+
+  def meta_data
+    @meta_description = "#{@user.name_displayed}さんにおすすめのウォンテッド求人・会社"
   end
 end
