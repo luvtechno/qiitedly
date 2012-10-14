@@ -34,7 +34,7 @@ class Tag < ActiveRecord::Base
   end
 
   def self.find_by_name_or_id(arg)
-    Tag.find_by_url_name(arg) || Tag.find(arg)
+    Tag.find_by_name(arg) || Tag.find_by_url_name(arg) || Tag.find(arg)
   end
 
   def search_results_filtered
