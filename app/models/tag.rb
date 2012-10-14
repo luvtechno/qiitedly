@@ -13,10 +13,13 @@ class Tag < ActiveRecord::Base
     items = response.items
     if items
       items.each do |item|
-        search_result = search_results.where(link: item.link).first_or_initialize
+        link = item.link
+        next if link.include?('.html') || link.include?('.xml')
+
+        search_result = search_results.where(link: link).first_or_initialize
         search_result.title = item.title
         search_result.html_title = item.htmlTitle
-        search_result.link = item.link
+        search_result.link = link
         search_result.display_link = item.displayLink
         search_result.snippet = item.snippet
         search_result.html_snippet = item.htmlSnippet
