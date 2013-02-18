@@ -14,7 +14,7 @@ class Tag < ActiveRecord::Base
     if items
       items.each do |item|
         link = item.link
-        next if link.include?('.html') || link.include?('.xml')
+        next if link.include?('.html') || link.include?('.xml') || link.include?('staffings')
 
         search_result = search_results.where(link: link).first_or_initialize
         search_result.title = item.title
