@@ -39,7 +39,7 @@ class Tag < ActiveRecord::Base
 
   def search_results_filtered
     results = search_results.order("RANDOM()").reject do |result|
-      result.link.include?('.html') || result.link.include?('.xml')
+      result.link.include?('.html') || result.link.include?('.xml') || result.link.include?('staffings')
     end
     results = SearchResult.all.sample(4) if results.empty?
     results.sort { |a, b| a.url <=> b.url }.uniq { |result| result.url }.shuffle
